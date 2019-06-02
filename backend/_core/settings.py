@@ -45,7 +45,6 @@ INSTALLED_APPS = [
 
     # LOCAL APPS
     'users.apps.UsersConfig',
-    'contacts.apps.ContactsConfig',
     'jobs.apps.JobsConfig'
 ]
 
