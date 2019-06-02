@@ -37,9 +37,22 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # THIRD PARTY APPS
+    'corsheaders',
+    'rest_framework',
+
+
+    # LOCAL APPS
+    'users.apps.UsersConfig',
+    'contacts.apps.ContactsConfig',
+    'jobs.apps.JobsConfig'
 ]
 
 MIDDLEWARE = [
+    # CORS MIDDLEWARE
+    'corsheaders.middleware.CorsMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
