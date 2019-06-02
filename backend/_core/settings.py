@@ -45,7 +45,8 @@ INSTALLED_APPS = [
 
     # LOCAL APPS
     'users.apps.UsersConfig',
-    'jobs.apps.JobsConfig'
+    'jobs.apps.JobsConfig',
+    'contacts.apps.ContactsConfig'
 ]
 
 MIDDLEWARE = [

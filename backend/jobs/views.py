@@ -1,7 +1,7 @@
 """ view definitions for jobs app """
 from rest_framework import viewsets, permissions
-from .models import Job, Contact
-from .serializers import JobSerializer, ContactSerializer
+from .models import Job
+from .serializers import JobSerializer
 
 
 class JobViewSet(viewsets.ModelViewSet):
@@ -11,12 +11,3 @@ class JobViewSet(viewsets.ModelViewSet):
         permissions.AllowAny
     ]
     serializer_class = JobSerializer
-
-
-class ContactViewSet(viewsets.ModelViewSet):
-    """ ViewSet definition for Contact model """
-    queryset = Contact.objects.all()
-    permission_classes = [
-        permissions.AllowAny
-    ]
-    serializer_class = ContactSerializer
