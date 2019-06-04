@@ -3,9 +3,9 @@ import React from 'react';
 function ContactCard(props) {
   return (
     <div className="contact-card card-shadow">
-      <h3>{props.name}</h3>
+      <h2>{props.name}</h2>
       <hr/>
-      <h4>{props.company}</h4>
+      <h3>{props.company}</h3>
       <p>{props.email}</p>
       <p>{props.phone_number}</p>
     </div>
