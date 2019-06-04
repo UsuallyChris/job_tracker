@@ -63,7 +63,7 @@ body {
   height: 90%;
   background: #fff;
   overflow: auto;
-  padding: 20%;
+  padding: 5% 10%;
 }
 
 .card-container {
@@ -72,4 +72,5 @@ body {
   z-index: -1;
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
 }
