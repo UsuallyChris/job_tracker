@@ -8,9 +8,11 @@ import Menu from './Menu';
 function MenuContainer() {
   return(
     <div className="menu-container shadow">
-      <Logo />
-      <Menu />
-      <Footer />
+      <div className="menu-content-container">
+        <Logo />
+        <Menu />
+        <Footer />
+      </div>
     </div>
   );
 };
