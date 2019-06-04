@@ -4,6 +4,7 @@ import axios from 'axios';
 // Component Imports
 import LeftContainer from '../menu/LeftContainer';
 import ContactCard from '../../common/ContactCard';
+import Title from '../../common/Title'
 
 class Contacts extends Component {
   constructor(props) {
@@ -30,6 +31,7 @@ class Contacts extends Component {
         <LeftContainer />
         <div className="right-container">
           <div className="right-content-container shadow">
+            <Title title='Contacts' />
             <div className="card-container">
               {this.state.contacts.map(contact => (
                 <ContactCard

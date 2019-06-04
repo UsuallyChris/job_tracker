@@ -123,6 +123,10 @@ body {
 }
 
 /** CONTENT */
+.title {
+  margin: 2.5%;
+}
+
 .card-container {
   overflow: scroll;
   z-index: -1;
@@ -132,6 +136,13 @@ body {
 }
 
 .contact-card {
+  margin: 2.5%;
+  width: 45%;
+  border-radius: 5px;
+  padding: 32px;
+}
+
+.card {
   margin: 2.5%;
   width: 45%;
   border-radius: 5px;
