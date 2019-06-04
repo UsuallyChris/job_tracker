@@ -1,4 +1,11 @@
 import React from 'react';
+import {
+  BrowserRouter,
+  Switch,
+  Route
+} from 'react-router-dom';
+
+// CSS Imports
 import './css/Normalize.css';
 import './css/App.css';
 
@@ -6,13 +13,19 @@ import './css/App.css';
 import LeftContainer from './components/layout/left/LeftContainer';
 
 import Jobs from './components/layout/right/Jobs';
+import Contacts from './components/layout/right/Contacts';
 
 function App() {
   return (
-    <div className="main-container">
-      <LeftContainer />
-      <Jobs />
-    </div>
+    <BrowserRouter>
+      <div className="main-container">
+        <LeftContainer />
+        <Switch>
+          <Route path='/jobs' component={Jobs}/>
+          <Route path='/contacts' component={Contacts}/>
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
