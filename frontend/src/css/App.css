@@ -62,20 +62,14 @@ body {
   width: 90%;
   height: 90%;
   background: #fff;
-  position: fixed;
   overflow: auto;
-}
-
-.title {
-  position: fixed;
-  z-index: 10;
-  background: #2C3E50;
-  width: 90%;
+  padding: 20%;
 }
 
 .card-container {
-  margin-top: 64px;
   overflow: scroll;
   height: 300vh;
   z-index: -1;
+  width: 100%;
+  display: flex;
 }
