@@ -1,9 +1,9 @@
 import React from 'react';
 
 // Component Imports
-import LeftContainer from '../left/LeftContainer';
+import LeftContainer from '../menu/LeftContainer';
 
-function Profile() {
+function Jobs() {
 
   return(
     <div className="main-container">
@@ -11,7 +11,7 @@ function Profile() {
       <div className="right-container">
         <div className="right-content-container shadow">
           <div className="card-container">
-            <h2>Profile</h2>
+            <h2>Jobs</h2>
           </div>
         </div>
       </div>
@@ -19,4 +19,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default Jobs;

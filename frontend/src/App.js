@@ -10,9 +10,9 @@ import './css/Normalize.css';
 import './css/App.css';
 
 // Component Imports
-import Jobs from './components/layout/right/Jobs';
-import Contacts from './components/layout/right/Contacts';
-import Profile from './components/layout/right/Profile';
+import Jobs from './components/layout/content/Jobs';
+import Contacts from './components/layout/content/Contacts';
+import Profile from './components/layout/content/Profile';
 
 function App() {
   return (

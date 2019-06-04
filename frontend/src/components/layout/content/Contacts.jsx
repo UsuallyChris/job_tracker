@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Component Imports
-import LeftContainer from '../left/LeftContainer';
+import LeftContainer from '../menu/LeftContainer';
 
 function Contacts() {
 
