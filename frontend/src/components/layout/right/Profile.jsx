@@ -3,7 +3,7 @@ import React from 'react';
 // Component Imports
 import LeftContainer from '../left/LeftContainer';
 
-function Contacts() {
+function Profile() {
 
   return(
     <div className="main-container">
@@ -11,7 +11,7 @@ function Contacts() {
       <div className="right-container">
         <div className="right-content-container shadow">
           <div className="card-container">
-            <h2>Contacts</h2>
+            <h2>Profile</h2>
           </div>
         </div>
       </div>
@@ -19,4 +19,4 @@ function Contacts() {
   );
 }
 
-export default Contacts;
+export default Profile;

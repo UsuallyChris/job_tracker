@@ -88,6 +88,12 @@ body {
   height: 95%;
 }
 
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 /** CONTENT */
 .card-container {
   overflow: scroll;

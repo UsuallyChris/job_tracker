@@ -10,17 +10,16 @@ import './css/Normalize.css';
 import './css/App.css';
 
 // Component Imports
-import LeftContainer from './components/layout/left/LeftContainer';
-
 import Jobs from './components/layout/right/Jobs';
 import Contacts from './components/layout/right/Contacts';
+import Profile from './components/layout/right/Profile';
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="main-container">
-        <LeftContainer />
+      <div>
         <Switch>
+          <Route path='/profile' component={Profile}/>
           <Route path='/jobs' component={Jobs}/>
           <Route path='/contacts' component={Contacts}/>
         </Switch>
