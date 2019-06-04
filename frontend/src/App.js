@@ -10,7 +10,9 @@ function App() {
   return (
     <div className="main-container">
       <LeftContainer />
-      <RightContainer />
+      <RightContainer>
+        
+      </RightContainer>
     </div>
   );
 }
