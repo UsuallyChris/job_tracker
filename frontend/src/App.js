@@ -1,9 +1,16 @@
 import React from 'react';
 import './App.css';
 
+// Component Imports
+import LeftContainer from './components/layout/left/LeftContainer';
+import RightContainer from './components/layout/right/RightContainer';
+
 function App() {
   return (
-    <h1>Home Page</h1>
+    <div className="main-container">
+      <LeftContainer />
+      <RightContainer />
+    </div>
   );
 }
 
