@@ -1,3 +1,21 @@
+/**
+
+COLORS:
+
+    MAIN
+
+    Dark: #2C3E50
+    Light: #ECF0F1
+
+
+    JOB STATUS
+
+    Accepted: #2ECC71
+    Applied: #F1C40F
+    Rejected: #E74C3C
+
+*/
+
 *,
 *::before,
 *::after {
@@ -5,6 +23,11 @@
 }
 
 /** LAYOUT AND FORMATTING **/
+html,
+body {
+  background: #ECF0F1;
+}
+
 .main-container {
   display: flex;
 }
