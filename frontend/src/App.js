@@ -1,5 +1,6 @@
 import React from 'react';
-import './App.css';
+import './css/Normalize.css';
+import './css/App.css';
 
 // Component Imports
 import LeftContainer from './components/layout/left/LeftContainer';
