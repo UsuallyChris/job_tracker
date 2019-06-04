@@ -97,7 +97,6 @@ body {
 /** CONTENT */
 .card-container {
   overflow: scroll;
-  height: 300vh;
   z-index: -1;
   width: 100%;
   display: flex;

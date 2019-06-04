@@ -2,6 +2,7 @@ import React from 'react';
 
 // Component Imports
 import LeftContainer from '../menu/LeftContainer';
+import Title from '../../common/Title';
 
 function Contacts() {
 
@@ -11,7 +12,7 @@ function Contacts() {
       <div className="right-container">
         <div className="right-content-container shadow">
           <div className="card-container">
-            <h2>Contacts</h2>
+            <Title title='Contacts' />
           </div>
         </div>
       </div>
