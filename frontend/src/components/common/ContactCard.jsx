@@ -2,7 +2,7 @@ import React from 'react';
 
 function ContactCard(props) {
   return (
-    <div className="contact-card">
+    <div className="contact-card card-shadow">
       <h3>{props.name}</h3>
       <hr/>
       <h4>{props.company}</h4>
