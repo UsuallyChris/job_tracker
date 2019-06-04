@@ -4,15 +4,14 @@ import './css/App.css';
 
 // Component Imports
 import LeftContainer from './components/layout/left/LeftContainer';
-import RightContainer from './components/layout/right/RightContainer';
+
+import Jobs from './components/layout/right/Jobs';
 
 function App() {
   return (
     <div className="main-container">
       <LeftContainer />
-      <RightContainer>
-        
-      </RightContainer>
+      <Jobs />
     </div>
   );
 }
