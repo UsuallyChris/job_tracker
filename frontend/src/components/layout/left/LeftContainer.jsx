@@ -1,9 +1,12 @@
 import React from 'react';
 
+// Component Imports
+import MenuContainer from './MenuContainer';
+
 function LeftContainer() {
   return(
     <div className="left-container">
-      <h1>Left Container</h1>
+      <MenuContainer />
     </div>
   );
 }
