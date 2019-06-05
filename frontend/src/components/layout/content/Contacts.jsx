@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 // Component Imports
-import LeftContainer from '../menu/LeftContainer';
+import MainContainer from '../MainContainer';
 import ContactCard from '../../common/ContactCard';
-import Title from '../../common/Title'
 
 class Contacts extends Component {
   constructor(props) {
@@ -27,25 +26,19 @@ class Contacts extends Component {
 
   render() {
     return(
-      <div className="main-container">
-        <LeftContainer />
-        <div className="right-container">
-          <div className="right-content-container shadow">
-            <Title title='Contacts' />
-            <div className="card-container">
-              {this.state.contacts.map(contact => (
-                <ContactCard
-                  key={contact.id}
-                  name={contact.name}
-                  company={contact.company}
-                  email={contact.email}
-                  phone_number={contact.phone_number}
-                />
-              ))}
-            </div>
-          </div>
+      <MainContainer title='Contacts'>
+        <div className="card-container">
+          {this.state.contacts.map(contact => (
+            <ContactCard
+              key={contact.id}
+              name={contact.name}
+              company={contact.company}
+              email={contact.email}
+              phone_number={contact.phone_number}
+            />
+          ))}
         </div>
-      </div>
+      </MainContainer>
     );
   }
 }

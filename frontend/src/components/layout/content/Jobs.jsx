@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 // Component Imports
-import LeftContainer from '../menu/LeftContainer';
-import Title from '../../common/Title';
+import MainContainer from '../MainContainer';
 import JobCard from '../../common/JobCard'
 
 class Jobs extends Component {
@@ -27,11 +26,7 @@ class Jobs extends Component {
 
   render() {
     return(
-      <div className="main-container">
-        <LeftContainer />
-        <div className="right-container">
-          <div className="right-content-container shadow">
-            <Title title='Jobs' />
+      <MainContainer title='Jobs'>
             <div className="card-container">
               {this.state.jobs.map(job => (
                 <JobCard
@@ -42,9 +37,7 @@ class Jobs extends Component {
                 />
               ))}
             </div>
-          </div>
-        </div>
-      </div>
+      </MainContainer>
     );
   }
 }

@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-class AddJob extends Component {
+// Component Imports
+import MainContainer from '../MainContainer';
 
+class AddJob extends Component {
+  
 };
 
 export default AddJob;
