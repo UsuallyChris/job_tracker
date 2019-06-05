@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 
 // Component Imports
 import MainContainer from '../MainContainer';
+import TitleBar from '../../common/TitleBar';
 
 class AddJob extends Component {
   constructor(props) {
@@ -20,7 +21,11 @@ class AddJob extends Component {
 
   render() {
     return(
-      <MainContainer title='Add Job'></MainContainer>
+      <MainContainer>
+        <TitleBar title='Add Job'>
+          
+        </TitleBar>
+      </MainContainer>
     );
   };
 };
