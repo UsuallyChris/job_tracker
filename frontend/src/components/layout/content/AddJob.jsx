@@ -5,7 +5,24 @@ import axios from 'axios';
 import MainContainer from '../MainContainer';
 
 class AddJob extends Component {
-  
+  constructor(props) {
+    super(props);
+    this.state = [
+
+    ]
+  //handleChange bind
+  //handleSubmit bind
+  }
+
+  //handleChange function
+
+  //handleSubmit function
+
+  render() {
+    return(
+      <MainContainer title='Add Job'></MainContainer>
+    );
+  };
 };
 
 export default AddJob;
