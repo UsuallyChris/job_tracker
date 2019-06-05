@@ -31,10 +31,10 @@ class Jobs extends Component {
       <MainContainer>
         <TitleBar title='Jobs'>
         <Link to='/jobs/add'>
-            <div className="link-button">
-              <h3>Add New Job</h3>
-            </div>
-          </Link>
+          <div className="link-button">
+            <h3>Add New Job</h3>
+          </div>
+        </Link>
         </TitleBar>
         <div className="card-container">
           {this.state.jobs.map(job => (

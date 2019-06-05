@@ -31,10 +31,10 @@ class Contacts extends Component {
       <MainContainer>
         <TitleBar title='Contacts'>
         <Link to='/contacts/add'>
-            <div className="link-button">
-              <h3>Add New Contact</h3>
-            </div>
-          </Link>
+          <div className="link-button">
+            <h3>Add New Contact</h3>
+          </div>
+        </Link>
         </TitleBar>
         <div className="card-container">
           {this.state.contacts.map(contact => (
