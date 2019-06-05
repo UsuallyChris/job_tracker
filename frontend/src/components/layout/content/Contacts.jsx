@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 // Component Imports
 import MainContainer from '../MainContainer';
@@ -29,7 +30,11 @@ class Contacts extends Component {
     return(
       <MainContainer>
         <TitleBar title='Contacts'>
-          
+        <Link to='/contacts/add'>
+            <div className="link-button">
+              <h3>Add New Contact</h3>
+            </div>
+          </Link>
         </TitleBar>
         <div className="card-container">
           {this.state.contacts.map(contact => (

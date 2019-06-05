@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import axios from 'axios';
 
 // Component Imports
@@ -52,7 +52,11 @@ class AddContact extends Component {
     return(
       <MainContainer>
         <TitleBar title='Add Contact'>
-        
+          <Link to='/contacts'>
+            <div className="link-button">
+              <h3>Back to Contacts</h3>
+            </div>
+          </Link>
         </TitleBar>
         <form onSubmit={this.onSubmit}>
           <input type="text" name="name" onChange={this.onChange} value={this.state.name}/>

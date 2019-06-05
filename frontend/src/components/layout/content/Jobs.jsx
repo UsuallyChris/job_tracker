@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 // Component Imports
@@ -29,7 +30,11 @@ class Jobs extends Component {
     return(
       <MainContainer>
         <TitleBar title='Jobs'>
-          
+        <Link to='/jobs/add'>
+            <div className="link-button">
+              <h3>Add New Job</h3>
+            </div>
+          </Link>
         </TitleBar>
         <div className="card-container">
           {this.state.jobs.map(job => (
