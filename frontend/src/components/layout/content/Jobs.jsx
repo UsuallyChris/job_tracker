@@ -40,6 +40,7 @@ class Jobs extends Component {
           {this.state.jobs.map(job => (
             <JobCard
               key={job.id}
+              id={job.id}
               job_title={job.job_title}
               company={job.company}
               date_applied={job.date_applied}

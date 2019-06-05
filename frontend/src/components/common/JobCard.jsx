@@ -1,13 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function JobCard(props) {
   return(
-    <div className="card card-shadow">
-      <h2>{props.job_title} at {props.company}</h2>
-      <div className="job-card-status">
-        <p>Date Applied: {props.date_applied}</p>
+    <Link to={`/jobs/${props.id}`} className="card card-shadow">
+      <div>
+        <h2>{props.job_title} at {props.company}</h2>
+        <div className="job-card-status">
+          <p>Date Applied: {props.date_applied}</p>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

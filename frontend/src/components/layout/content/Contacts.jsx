@@ -40,6 +40,7 @@ class Contacts extends Component {
           {this.state.contacts.map(contact => (
             <ContactCard
               key={contact.id}
+              id={contact.id}
               name={contact.name}
               company={contact.company}
               email={contact.email}

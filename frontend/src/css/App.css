@@ -149,4 +149,6 @@ body {
   width: 45%;
   border-radius: 5px;
   padding: 32px;
+  text-decoration: none;
+  color: #000;
 }
