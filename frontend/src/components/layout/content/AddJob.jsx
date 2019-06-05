@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-//import axios from 'axios';
+import { Redirect } from 'react-router-dom';
+import axios from 'axios';
 
 // Component Imports
 import MainContainer from '../MainContainer';
@@ -8,23 +9,56 @@ import TitleBar from '../../common/TitleBar';
 class AddJob extends Component {
   constructor(props) {
     super(props);
-    this.state = [
-
-    ]
-  //handleChange bind
-  //handleSubmit bind
+    this.state = {
+      company: '',
+      date_applied: '',
+      job_title: '',
+      to_dashboard: false
+    }
+  
+  this.onSubmit = this.onSubmit.bind(this);
+  this.onChange = this.onChange.bind(this);
   }
 
-  //handleChange function
+  onChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  }
 
-  //handleSubmit function
+  onSubmit(e) {
+    e.preventDefault();
+    const {company, date_applied, job_title} = this.state;
+    const job = {company, date_applied, job_title};
+    axios.post('http://127.0.0.1:8000/api/jobs/', job)
+      .then(res => {
+        console.log(res);
+        this.setState({
+          to_dashboard: true
+        })
+      })
+      .catch(err => console.log(err.response.data));
+  }
 
   render() {
+    
+    if(this.state.to_dashboard === true) {
+      return(
+        <Redirect exact to='/jobs' />
+      )
+    }
+
     return(
       <MainContainer>
         <TitleBar title='Add Job'>
-          
+        
         </TitleBar>
+        <form onSubmit={this.onSubmit}>
+          <input type="text" name="company" onChange={this.onChange} value={this.state.company}/>
+          <input type="text" name="job_title" onChange={this.onChange} value={this.state.job_title}/>
+          <input type="text" name="date_applied" onChange={this.onChange} value={this.state.date_applied}/>
+          <button type="submit">Add Job</button>
+        </form>
       </MainContainer>
     );
   };

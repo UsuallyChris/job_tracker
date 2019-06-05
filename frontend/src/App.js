@@ -15,6 +15,7 @@ import Jobs from './components/layout/content/Jobs';
 import Contacts from './components/layout/content/Contacts';
 import Profile from './components/layout/content/Profile';
 import AddJob from './components/layout/content/AddJob';
+import AddContact from './components/layout/content/AddContact';
 
 function App() {
   return (
@@ -25,7 +26,8 @@ function App() {
           <Route path='/profile' component={Profile}/>
           <Route exact path='/jobs' component={Jobs}/>
           <Route path='/jobs/add' component={AddJob}/>
-          <Route path='/contacts' component={Contacts}/>
+          <Route exact path='/contacts' component={Contacts}/>
+          <Route path='/contacts/add' component={AddContact}/>
         </Switch>
       </div>
     </BrowserRouter>
