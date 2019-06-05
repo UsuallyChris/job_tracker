@@ -3,6 +3,7 @@ import axios from 'axios';
 
 // Component Imports
 import MainContainer from '../MainContainer';
+import TitleBar from '../../common/TitleBar';
 import JobCard from '../../common/JobCard'
 
 class Jobs extends Component {
@@ -26,17 +27,20 @@ class Jobs extends Component {
 
   render() {
     return(
-      <MainContainer title='Jobs'>
-            <div className="card-container">
-              {this.state.jobs.map(job => (
-                <JobCard
-                  key={job.id}
-                  job_title={job.job_title}
-                  company={job.company}
-                  date_applied={job.date_applied}
-                />
-              ))}
-            </div>
+      <MainContainer>
+        <TitleBar title='Jobs'>
+          
+        </TitleBar>
+        <div className="card-container">
+          {this.state.jobs.map(job => (
+            <JobCard
+              key={job.id}
+              job_title={job.job_title}
+              company={job.company}
+              date_applied={job.date_applied}
+            />
+          ))}
+        </div>
       </MainContainer>
     );
   }
