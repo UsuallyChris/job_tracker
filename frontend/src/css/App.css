@@ -123,8 +123,10 @@ body {
 }
 
 /** CONTENT */
-.title {
+.title-bar {
   margin: 2.5%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .card-container {

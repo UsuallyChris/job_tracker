@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import axios from 'axios';
 
 // Component Imports
@@ -41,7 +41,7 @@ class AddJob extends Component {
   }
 
   render() {
-    
+
     if(this.state.to_dashboard === true) {
       return(
         <Redirect exact to='/jobs' />
@@ -51,7 +51,11 @@ class AddJob extends Component {
     return(
       <MainContainer>
         <TitleBar title='Add Job'>
-        
+          <Link to='/jobs'>
+            <div className="link-button">
+              <h3>Back to Jobs</h3>
+            </div>
+          </Link>
         </TitleBar>
         <form onSubmit={this.onSubmit}>
           <input type="text" name="company" onChange={this.onChange} value={this.state.company}/>
