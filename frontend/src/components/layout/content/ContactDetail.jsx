@@ -5,6 +5,7 @@ import axios from 'axios';
 // Component Imports
 import MainContainer from '../MainContainer';
 import TitleBar from '../../common/TitleBar';
+import ContactInfo from '../../common/ContactInfo';
 
 class ContactDetail extends Component {
   constructor(props) {
@@ -50,7 +51,12 @@ class ContactDetail extends Component {
           </div>
         </Link>
         </TitleBar>
-
+        <ContactInfo 
+          name={this.state.name}
+          company={this.state.company}
+          email={this.state.email}
+          phone_number={this.state.phone_number}
+        />
       </MainContainer>
     );
   }
