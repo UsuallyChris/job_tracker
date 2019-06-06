@@ -1,4 +1,4 @@
-import { GET_JOBS, DELETE_JOB } from '../actions/types';
+import { GET_JOBS, DELETE_JOB, ADD_JOB } from '../actions/types';
 
 const initialState = {
   jobs: []
@@ -17,6 +17,12 @@ export default function(state = initialState, action) {
         ...state,
         jobs: state.jobs.filter(job => job.id !== action.payload)
       };
+
+    case ADD_JOB:
+      return{
+        ...state,
+        jobs: [...state.jobs, action.payload]
+      }
 
     default:
       return state;

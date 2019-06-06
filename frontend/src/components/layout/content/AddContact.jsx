@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Redirect, Link } from 'react-router-dom';
-import axios from 'axios';
+
+// Redux Imports
+import { connect } from 'react-redux';
+import { addContact } from '../../../actions/contacts';
 
 // Component Imports
 import MainContainer from '../MainContainer';
@@ -31,14 +34,10 @@ class AddContact extends Component {
     e.preventDefault();
     const {name, company, phone_number, email} = this.state;
     const contact = {name, company, phone_number, email};
-    axios.post('http://127.0.0.1:8000/api/contacts/', contact)
-      .then(res => {
-        console.log(res);
-        this.setState({
-          to_dashboard: true
-        })
-      })
-      .catch(err => console.log(err.response));
+    this.props.addContact(contact);
+    this.setState({
+      to_dashboard: true
+    })
   }
 
   render() {
@@ -80,4 +79,4 @@ class AddContact extends Component {
   };
 };
 
-export default AddContact;
+export default connect(null, { addContact })(AddContact);
