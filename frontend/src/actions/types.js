@@ -1,1 +1,6 @@
+// JOBS ACTIONS
 export const GET_JOBS = 'GET_JOBS';
+
+
+// CONTACTS ACTIONS
+export const GET_CONTACTS = 'GET_CONTACTS';

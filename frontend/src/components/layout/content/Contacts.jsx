@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
+
+// Redux Imports
+import { connect } from 'react-redux';
+import { getContacts } from '../../../actions/contacts';
 
 // Component Imports
 import MainContainer from '../MainContainer';
@@ -8,22 +11,9 @@ import TitleBar from '../../common/TitleBar';
 import ContactCard from '../../common/ContactCard';
 
 class Contacts extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      contacts: []
-    }
-
-    this.getContacts = this.getContacts.bind(this);
-  }
-
-  getContacts() {
-    axios.get('http://127.0.0.1:8000/api/contacts/')
-      .then(res => this.setState({ contacts: res.data }));
-  };
 
   componentDidMount() {
-    this.getContacts();
+    this.props.getContacts();
   }
 
   render() {
@@ -37,7 +27,7 @@ class Contacts extends Component {
         </Link>
         </TitleBar>
         <div className="card-container">
-          {this.state.contacts.map(contact => (
+          {this.props.contacts.map(contact => (
             <ContactCard
               key={contact.id}
               id={contact.id}
@@ -53,4 +43,8 @@ class Contacts extends Component {
   }
 }
 
-export default Contacts;
+const mapStateToProps = state => ({
+  contacts: state.contacts.contacts,
+})
+
+export default connect(mapStateToProps, { getContacts })(Contacts);
