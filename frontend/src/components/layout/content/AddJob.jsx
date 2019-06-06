@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Redirect, Link } from 'react-router-dom';
-import axios from 'axios';
+
+// Redux Imports
+import { connect } from 'react-redux';
+import { addJob } from '../../../actions/jobs';
 
 // Component Imports
 import MainContainer from '../MainContainer';
@@ -30,14 +33,10 @@ class AddJob extends Component {
     e.preventDefault();
     const {company, date_applied, job_title} = this.state;
     const job = {company, date_applied, job_title};
-    axios.post('http://127.0.0.1:8000/api/jobs/', job)
-      .then(res => {
-        console.log(res);
-        this.setState({
-          to_dashboard: true
-        })
-      })
-      .catch(err => console.log(err.response));
+    this.props.addJob(job);
+    this.setState({
+      to_dashboard: true
+    })
   }
 
   render() {
@@ -77,4 +76,4 @@ class AddJob extends Component {
   };
 };
 
-export default AddJob;
+export default connect(null, { addJob })(AddJob);
