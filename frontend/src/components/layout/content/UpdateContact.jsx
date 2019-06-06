@@ -6,13 +6,14 @@ import axios from 'axios';
 import MainContainer from '../MainContainer';
 import TitleBar from '../../common/TitleBar';
 
-class UpdateJob extends Component {
+class UpdateContact extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      name: '',
       company: '',
-      date_applied: '',
-      job_title: '',
+      phone_number: '',
+      email: '',
       id: '',
       to_dashboard: false
     }
@@ -22,13 +23,14 @@ class UpdateJob extends Component {
   }
 
   componentDidMount() {
-    axios.get(`http://127.0.0.1:8000/api/jobs/${this.props.match.params.id}/`)
+    axios.get(`http://127.0.0.1:8000/api/contacts/${this.props.match.params.id}/`)
       .then(res => {
         this.setState({
           id: res.data.id,
-          job_title: res.data.job_title,
+          name: res.data.name,
           company: res.data.company,
-          date_applied: res.data.date_applied,
+          phone_number: res.data.phone_number,
+          email: res.data.email
         });
         console.log(res);
       })
@@ -45,9 +47,9 @@ class UpdateJob extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    const {company, date_applied, job_title} = this.state;
-    const job = {company, date_applied, job_title};
-    axios.put(`http://127.0.0.1:8000/api/jobs/${this.state.id}/`, job)
+    const {name, company, phone_number, email} = this.state;
+    const job = {name, company, phone_number, email};
+    axios.put(`http://127.0.0.1:8000/api/contacts/${this.state.id}/`, job)
       .then(res => {
         console.log(res);
         this.setState({
@@ -61,32 +63,34 @@ class UpdateJob extends Component {
 
     if(this.state.to_dashboard === true) {
       return(
-        <Redirect exact to={`/jobs/${this.state.id}`} />
+        <Redirect exact to={`/contacts/${this.state.id}`} />
       )
     }
 
     return(
       <MainContainer>
-        <TitleBar title='Update Job'>
-          <Link to={`/jobs/${this.state.id}`}>
+        <TitleBar title='Update Contact'>
+          <Link to={`/contacts/${this.state.id}`}>
             <div className="link-button">
-              <h3>Back to Job</h3>
+              <h3>Back to Contact</h3>
             </div>
           </Link>
         </TitleBar>
         <div className="form-container">
           <div className="form-card card-shadow">
             <form onSubmit={this.onSubmit}>
-              <h2>Job Title:</h2>
-              <input type="text" name="job_title" onChange={this.onChange} value={this.state.job_title}/>
+              <h2>Name:</h2>
+              <input type="text" name="name" onChange={this.onChange} value={this.state.name}/>
               <h2>Company:</h2>
               <input type="text" name="company" onChange={this.onChange} value={this.state.company}/>
-              <h2>Date Applied:</h2>
-              <input type="text" name="date_applied" onChange={this.onChange} value={this.state.date_applied}/>
+              <h2>Phone Number:</h2>
+              <input type="text" name="phone_number" onChange={this.onChange} value={this.state.phone_number}/>
+              <h2>Email:</h2>
+              <input type="text" name="email" onChange={this.onChange} value={this.state.email}/>
               <div className="form-button">
-                <button type="submit">Update Job</button>
+                <button type="submit">Update Contact</button>
               </div>
-            </form>
+            </form>        
           </div>
         </div>
       </MainContainer>
@@ -94,4 +98,4 @@ class UpdateJob extends Component {
   };
 };
 
-export default UpdateJob;
+export default UpdateContact;

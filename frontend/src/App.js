@@ -22,6 +22,7 @@ import UpdateJob from './components/layout/content/UpdateJob';
 import Contacts from './components/layout/content/Contacts';
 import AddContact from './components/layout/content/AddContact';
 import ContactDetail from './components/layout/content/ContactDetail';
+import UpdateContact from './components/layout/content/UpdateContact';
 
 // Profile
 import Profile from './components/layout/content/Profile';
@@ -43,7 +44,8 @@ function App() {
           
           <Route exact path='/contacts' component={Contacts}/>
           <Route path='/contacts/add' component={AddContact}/>
-          <Route path='/contacts/:id' component={ContactDetail}/>
+          <Route exact path='/contacts/:id' component={ContactDetail}/>
+          <Route path='/contacts/:id/update' component={UpdateContact}/>
           
           <Route path='/profile' component={Profile}/>
         </Switch>
