@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 // Component Imports
 import MainContainer from '../MainContainer';
 import TitleBar from '../../common/TitleBar';
-import axios from 'axios';
+import JobInfo from '../../common/JobInfo';
+
 
 class JobDetail extends Component {
   constructor(props) {
@@ -48,7 +50,11 @@ class JobDetail extends Component {
             </div>
           </Link>
         </TitleBar>
-
+        <JobInfo 
+          job_title={this.state.job_title}
+          company={this.state.company}
+          date_applied={this.state.date_applied}
+        />
       </MainContainer>
     );
   }

@@ -153,3 +153,16 @@ body {
   text-decoration: none;
   color: #000;
 }
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-card {
+  margin: 2.5%;
+  width: 90%;
+  border-radius: 5px;
+  padding: 32px;
+}
