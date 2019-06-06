@@ -54,6 +54,7 @@ class JobDetail extends Component {
           job_title={this.state.job_title}
           company={this.state.company}
           date_applied={this.state.date_applied}
+          id={this.state.id}
         />
       </MainContainer>
     );

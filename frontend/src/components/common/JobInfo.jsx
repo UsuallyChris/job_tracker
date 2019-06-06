@@ -1,5 +1,8 @@
 import React from 'react';
 
+// Component Imports
+import InfoButtons from '../common/InfoButtons';
+
 function JobInfo(props) {
   return(
     <div className="info-container">
@@ -10,9 +13,10 @@ function JobInfo(props) {
         <p>{props.company}</p>
         <h2>Date Applied:</h2>
         <p>{props.date_applied}</p>
-      </div>
-      <div className="info-buttons">
-
+        <InfoButtons 
+          type='jobs'
+          id={props.id}
+        />
       </div>
     </div>
   );

@@ -56,6 +56,7 @@ class ContactDetail extends Component {
           company={this.state.company}
           email={this.state.email}
           phone_number={this.state.phone_number}
+          id={this.state.id}
         />
       </MainContainer>
     );
