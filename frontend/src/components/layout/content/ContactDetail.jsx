@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 // Component Imports
 import MainContainer from '../MainContainer';
@@ -9,8 +10,34 @@ class ContactDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      id: '',
+      name: '',
+      company: '',
+      email: '',
+      phone_number: '',
+      status: ''
     }
+  }
+
+  componentDidMount() {
+    axios.get(`http://127.0.0.1:8000/api/contacts/${this.props.match.params.id}/`)
+      .then(res => {
+        this.setState({
+          id: res.data.id,
+          name: res.data.name,
+          company: res.data.company,
+          email: res.data.email,
+          phone_number: res.data.phone_number,
+          status: res.status
+        });
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err.response);
+        this.setState({
+          status: err.response.status
+        })
+      })
   }
 
   render() {
@@ -23,6 +50,7 @@ class ContactDetail extends Component {
           </div>
         </Link>
         </TitleBar>
+
       </MainContainer>
     );
   }
