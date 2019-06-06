@@ -16,8 +16,9 @@ function JobInfo(props) {
         <h2>Phone Number:</h2>
         <p>{props.phone_number}</p>
         <InfoButtons 
-          type='contacts'
+          url='contacts'
           id={props.id}
+          model='contact'
         />
       </div>
     </div>

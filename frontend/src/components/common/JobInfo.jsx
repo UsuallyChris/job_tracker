@@ -14,8 +14,9 @@ function JobInfo(props) {
         <h2>Date Applied:</h2>
         <p>{props.date_applied}</p>
         <InfoButtons 
-          type='jobs'
+          url='jobs'
           id={props.id}
+          model='job'
         />
       </div>
     </div>
