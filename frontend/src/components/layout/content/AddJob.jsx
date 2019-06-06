@@ -57,12 +57,21 @@ class AddJob extends Component {
             </div>
           </Link>
         </TitleBar>
-        <form onSubmit={this.onSubmit}>
-          <input type="text" name="company" onChange={this.onChange} value={this.state.company}/>
-          <input type="text" name="job_title" onChange={this.onChange} value={this.state.job_title}/>
-          <input type="text" name="date_applied" onChange={this.onChange} value={this.state.date_applied}/>
-          <button type="submit">Add Job</button>
-        </form>
+        <div className="form-container">
+          <div className="form-card card-shadow">
+            <form onSubmit={this.onSubmit}>
+              <h2>Company:</h2>
+              <input type="text" name="company" onChange={this.onChange} value={this.state.company}/>
+              <h2>Job Title:</h2>
+              <input type="text" name="job_title" onChange={this.onChange} value={this.state.job_title}/>
+              <h2>Date Applied:</h2>
+              <input type="text" name="date_applied" onChange={this.onChange} value={this.state.date_applied}/>
+              <div className="form-button">
+                <button type="submit">Add Job</button>
+              </div>
+            </form>
+          </div>
+        </div>
       </MainContainer>
     );
   };
