@@ -58,13 +58,23 @@ class AddContact extends Component {
             </div>
           </Link>
         </TitleBar>
-        <form onSubmit={this.onSubmit}>
-          <input type="text" name="name" onChange={this.onChange} value={this.state.name}/>
-          <input type="text" name="company" onChange={this.onChange} value={this.state.company}/>
-          <input type="text" name="phone_number" onChange={this.onChange} value={this.state.phone_number}/>
-          <input type="text" name="email" onChange={this.onChange} value={this.state.email}/>
-          <button type="submit">Add Contact</button>
-        </form>
+        <div className="form-container">
+          <div className="form-card card-shadow">
+            <form onSubmit={this.onSubmit}>
+              <h2>Name:</h2>
+              <input type="text" name="name" onChange={this.onChange} value={this.state.name}/>
+              <h2>Company:</h2>
+              <input type="text" name="company" onChange={this.onChange} value={this.state.company}/>
+              <h2>Phone Number:</h2>
+              <input type="text" name="phone_number" onChange={this.onChange} value={this.state.phone_number}/>
+              <h2>Email:</h2>
+              <input type="text" name="email" onChange={this.onChange} value={this.state.email}/>
+              <div className="form-button">
+                <button type="submit">Add Contact</button>
+              </div>
+            </form>        
+          </div>
+        </div>
       </MainContainer>
     );
   };
