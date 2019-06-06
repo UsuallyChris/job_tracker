@@ -16,6 +16,7 @@ import HomePage from './components/home_page/HomePage';
 import Jobs from './components/layout/content/Jobs';
 import AddJob from './components/layout/content/AddJob';
 import JobDetail from './components/layout/content/JobDetail';
+import UpdateJob from './components/layout/content/UpdateJob';
 
 // Contacts
 import Contacts from './components/layout/content/Contacts';
@@ -37,7 +38,8 @@ function App() {
 
           <Route exact path='/jobs' component={Jobs}/>
           <Route path='/jobs/add' component={AddJob}/>
-          <Route path='/jobs/:id' component={JobDetail}/>
+          <Route exact path='/jobs/:id' component={JobDetail}/>
+          <Route path='/jobs/:id/update' component={UpdateJob}/>
           
           <Route exact path='/contacts' component={Contacts}/>
           <Route path='/contacts/add' component={AddContact}/>

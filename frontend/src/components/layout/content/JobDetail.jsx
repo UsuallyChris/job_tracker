@@ -16,7 +16,7 @@ class JobDetail extends Component {
       job_title: '',
       company: '',
       date_applied: '',
-      status: ''
+      httpstatus: ''
     }
   }
 
@@ -28,14 +28,14 @@ class JobDetail extends Component {
           job_title: res.data.job_title,
           company: res.data.company,
           date_applied: res.data.date_applied,
-          status: res.status
+          httpstatus: res.status
         });
         console.log(res);
       })
       .catch(err => {
         console.log(err.response);
         this.setState({
-          status: err.response.status
+          httpstatus: err.response.status
         })
       })
   }

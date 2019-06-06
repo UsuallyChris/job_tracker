@@ -6,18 +6,35 @@ import axios from 'axios';
 import MainContainer from '../MainContainer';
 import TitleBar from '../../common/TitleBar';
 
-class AddJob extends Component {
+class UpdateJob extends Component {
   constructor(props) {
     super(props);
     this.state = {
       company: '',
       date_applied: '',
       job_title: '',
+      id: '',
       to_dashboard: false
     }
   
   this.onSubmit = this.onSubmit.bind(this);
   this.onChange = this.onChange.bind(this);
+  }
+
+  componentDidMount() {
+    axios.get(`http://127.0.0.1:8000/api/jobs/${this.props.match.params.id}/`)
+      .then(res => {
+        this.setState({
+          id: res.data.id,
+          job_title: res.data.job_title,
+          company: res.data.company,
+          date_applied: res.data.date_applied,
+        });
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err.response);
+      })
   }
 
   onChange(e) {
@@ -30,7 +47,7 @@ class AddJob extends Component {
     e.preventDefault();
     const {company, date_applied, job_title} = this.state;
     const job = {company, date_applied, job_title};
-    axios.post('http://127.0.0.1:8000/api/jobs/', job)
+    axios.put(`http://127.0.0.1:8000/api/jobs/${this.state.id}/`, job)
       .then(res => {
         console.log(res);
         this.setState({
@@ -44,16 +61,16 @@ class AddJob extends Component {
 
     if(this.state.to_dashboard === true) {
       return(
-        <Redirect exact to='/jobs' />
+        <Redirect exact to={`/jobs/${this.state.id}`} />
       )
     }
 
     return(
       <MainContainer>
-        <TitleBar title='Add Job'>
+        <TitleBar title='Update Job'>
           <Link to='/jobs'>
             <div className="link-button">
-              <h3>Back to Jobs</h3>
+              <h3>Back to Job</h3>
             </div>
           </Link>
         </TitleBar>
@@ -67,7 +84,7 @@ class AddJob extends Component {
               <h2>Date Applied:</h2>
               <input type="text" name="date_applied" onChange={this.onChange} value={this.state.date_applied}/>
               <div className="form-button">
-                <button type="submit">Add Job</button>
+                <button type="submit">Update Job</button>
               </div>
             </form>
           </div>
@@ -77,4 +94,4 @@ class AddJob extends Component {
   };
 };
 
-export default AddJob;
+export default UpdateJob;
