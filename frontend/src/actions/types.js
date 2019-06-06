@@ -1,6 +1,8 @@
 // JOBS ACTIONS
 export const GET_JOBS = 'GET_JOBS';
+export const DELETE_JOB = 'DELETE_JOB';
 
 
 // CONTACTS ACTIONS
 export const GET_CONTACTS = 'GET_CONTACTS';
+export const DELETE_CONTACT = 'DELETE_CONTACT';

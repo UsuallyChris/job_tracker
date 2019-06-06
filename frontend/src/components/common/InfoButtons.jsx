@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import axios from 'axios';
+
+// Redux Imports 
+import { connect } from 'react-redux';
+import { deleteContact } from '../../actions/contacts';
+import { deleteJob } from '../../actions/jobs';
 
 class InfoButtons extends Component {
   constructor(props) {
@@ -13,16 +17,17 @@ class InfoButtons extends Component {
   }
 
   onClick() {
-    axios.delete(`http://127.0.0.1:8000/api/${this.props.url}/${this.props.id}/`)
-      .then(res => {
-        console.log(res)
-        this.setState({
-          to_dashboard: true
-        })
+    if(this.props.url === 'contacts') {
+      this.props.deleteContact(this.props.id);
+      this.setState({
+        to_dashboard: true
       })
-      .catch(err => {
-        console.log(err.response)
+    } else if(this.props.url === 'jobs') {
+      this.props.deleteJob(this.props.id);
+      this.setState({
+        to_dashboard: true
       })
+    }
   }
 
   render() {
@@ -44,4 +49,9 @@ class InfoButtons extends Component {
   }
 }
 
-export default InfoButtons;
+const mapStateToProps = state => ({
+  contacts: state.contacts.contacts,
+  jobs: state.jobs.jobs
+});
+
+export default connect(mapStateToProps, { deleteJob, deleteContact })(InfoButtons);
