@@ -37,7 +37,7 @@ class AddJob extends Component {
           to_dashboard: true
         })
       })
-      .catch(err => console.log(err.response.data));
+      .catch(err => console.log(err.response));
   }
 
   render() {
