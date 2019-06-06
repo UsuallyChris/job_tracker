@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+
+// Redux Imports
+import { connect } from 'react-redux';
+import { getJobs } from '../../../actions/jobs';
 
 // Component Imports
 import MainContainer from '../MainContainer';
@@ -8,22 +11,9 @@ import TitleBar from '../../common/TitleBar';
 import JobCard from '../../common/JobCard'
 
 class Jobs extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      jobs: []
-    }
-
-    this.getJobs = this.getJobs.bind(this);
-  }
-
-  getJobs() {
-    axios.get('http://127.0.0.1:8000/api/jobs/')
-      .then(res => this.setState({ jobs: res.data }));
-  }
 
   componentDidMount() {
-    this.getJobs();
+    this.props.getJobs();
   }
 
   render() {
@@ -37,7 +27,7 @@ class Jobs extends Component {
         </Link>
         </TitleBar>
         <div className="card-container">
-          {this.state.jobs.map(job => (
+          {this.props.jobs.map(job => (
             <JobCard
               key={job.id}
               id={job.id}
@@ -52,4 +42,8 @@ class Jobs extends Component {
   }
 }
 
-export default Jobs;
+const mapStateToProps = state => ({
+  jobs: state.jobs.jobs,
+})
+
+export default connect(mapStateToProps, { getJobs })(Jobs);

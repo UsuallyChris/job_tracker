@@ -5,6 +5,10 @@ import {
   Route
 } from 'react-router-dom';
 
+// Redux Imports
+import { Provider } from 'react-redux';
+import store from './store';
+
 // CSS Imports
 import './css/Normalize.css';
 import './css/App.css';
@@ -32,25 +36,27 @@ import Profile from './components/layout/content/Profile';
 
 function App() {
   return (
-    <BrowserRouter>
-      <div>
-        <Switch>
-          <Route exact path='/' component={HomePage}/>
+    <Provider store={store}>
+      <BrowserRouter>
+        <div>
+          <Switch>
+            <Route exact path='/' component={HomePage}/>
 
-          <Route exact path='/jobs' component={Jobs}/>
-          <Route path='/jobs/add' component={AddJob}/>
-          <Route exact path='/jobs/:id' component={JobDetail}/>
-          <Route path='/jobs/:id/update' component={UpdateJob}/>
-          
-          <Route exact path='/contacts' component={Contacts}/>
-          <Route path='/contacts/add' component={AddContact}/>
-          <Route exact path='/contacts/:id' component={ContactDetail}/>
-          <Route path='/contacts/:id/update' component={UpdateContact}/>
-          
-          <Route path='/profile' component={Profile}/>
-        </Switch>
-      </div>
-    </BrowserRouter>
+            <Route exact path='/jobs' component={Jobs}/>
+            <Route path='/jobs/add' component={AddJob}/>
+            <Route exact path='/jobs/:id' component={JobDetail}/>
+            <Route path='/jobs/:id/update' component={UpdateJob}/>
+            
+            <Route exact path='/contacts' component={Contacts}/>
+            <Route path='/contacts/add' component={AddContact}/>
+            <Route exact path='/contacts/:id' component={ContactDetail}/>
+            <Route path='/contacts/:id/update' component={UpdateContact}/>
+            
+            <Route path='/profile' component={Profile}/>
+          </Switch>
+        </div>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
