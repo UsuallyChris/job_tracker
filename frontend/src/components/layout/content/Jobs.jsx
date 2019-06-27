@@ -34,6 +34,7 @@ class Jobs extends Component {
               job_title={job.job_title}
               company={job.company}
               date_applied={job.date_applied}
+              job_status={job.job_status}
             />
           ))}
         </div>
