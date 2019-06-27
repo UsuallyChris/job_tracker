@@ -43,6 +43,16 @@ class JobDetail extends Component {
   }
 
   render() {
+
+    let job_status = '';
+    if (this.state.job_status === 'APP') {
+      job_status = "Applied";
+    } else if (this.state.job_status === 'OFF') {
+      job_status = "Job Offered";
+    } else {
+      job_status = "Rejected";
+    }
+
     return(
       <MainContainer>
         <TitleBar title='Job Detail'>
@@ -56,7 +66,7 @@ class JobDetail extends Component {
           job_title={this.state.job_title}
           company={this.state.company}
           date_applied={this.state.date_applied}
-          job_status={this.state.job_status}
+          job_status={job_status}
           id={this.state.id}
         />
       </MainContainer>
