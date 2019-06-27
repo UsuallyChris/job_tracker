@@ -212,6 +212,8 @@ input[type=text] {
   border: none;
 }
 
+/** BUTTONS */
+
 button {
   z-index: 1;
   font-size: inherit;

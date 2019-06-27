@@ -13,6 +13,8 @@ function JobInfo(props) {
         <p>{props.company}</p>
         <h2>Date Applied:</h2>
         <p>{props.date_applied}</p>
+        <h2>Job Status:</h2>
+        <p>{props.job_status}</p>
         <InfoButtons 
           url='jobs'
           id={props.id}

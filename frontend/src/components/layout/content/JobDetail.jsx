@@ -16,6 +16,7 @@ class JobDetail extends Component {
       job_title: '',
       company: '',
       date_applied: '',
+      job_status: '',
       httpstatus: ''
     }
   }
@@ -28,6 +29,7 @@ class JobDetail extends Component {
           job_title: res.data.job_title,
           company: res.data.company,
           date_applied: res.data.date_applied,
+          job_status: res.data.job_status,
           httpstatus: res.status
         });
         console.log(res);
@@ -54,6 +56,7 @@ class JobDetail extends Component {
           job_title={this.state.job_title}
           company={this.state.company}
           date_applied={this.state.date_applied}
+          job_status={this.state.job_status}
           id={this.state.id}
         />
       </MainContainer>
