@@ -216,6 +216,10 @@ button {
   background-color: #2ECC71;
 }
 
+.delete-button {
+  background-color: #E74C3C;
+}
+
 button:hover {
   cursor: pointer;
   animation: jelly 0.5s;
