@@ -170,6 +170,39 @@ body {
   position: relative;
 }
 
+.applied::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 6px;
+  background-color: #F1C40F;
+  content: '';
+  border-radius: 5px 0 0 5px;
+}
+
+.offered::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 6px;
+  background-color: #2ECC71;
+  content: '';
+  border-radius: 5px 0 0 5px;
+}
+
+.rejected::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 6px;
+  background-color: #E74C3C;
+  content: '';
+  border-radius: 5px 0 0 5px;
+}
+
 .info-container {
   display: flex;
   height: 90%;
