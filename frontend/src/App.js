@@ -13,9 +13,6 @@ import store from './store';
 import './css/Normalize.css';
 import './css/App.css';
 
-// Component Imports
-import HomePage from './components/home_page/HomePage';
-
 // Jobs
 import Jobs from './components/layout/content/Jobs';
 import AddJob from './components/layout/content/AddJob';
@@ -28,11 +25,6 @@ import AddContact from './components/layout/content/AddContact';
 import ContactDetail from './components/layout/content/ContactDetail';
 import UpdateContact from './components/layout/content/UpdateContact';
 
-// Profile
-import Profile from './components/layout/content/Profile';
-
-
-
 
 function App() {
   return (
@@ -40,7 +32,7 @@ function App() {
       <BrowserRouter>
         <div>
           <Switch>
-            <Route exact path='/' component={HomePage}/>
+            <Route exact path='/' component={Jobs}/>
 
             <Route exact path='/jobs' component={Jobs}/>
             <Route path='/jobs/add' component={AddJob}/>
@@ -52,7 +44,6 @@ function App() {
             <Route exact path='/contacts/:id' component={ContactDetail}/>
             <Route path='/contacts/:id/update' component={UpdateContact}/>
             
-            <Route path='/profile' component={Profile}/>
           </Switch>
         </div>
       </BrowserRouter>
