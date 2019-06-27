@@ -40,7 +40,9 @@ class InfoButtons extends Component {
 
     return(
       <div className="info-buttons">
-        <Link to={`/${this.props.url}/${this.props.id}/update`}>Update {this.props.model}</Link>
+        <div className='jelly'>
+          <Link className='update-button' to={`/${this.props.url}/${this.props.id}/update`}>Update {this.props.model}</Link>
+        </div>
         <div>
           <button className="delete-button" onClick={this.onClick}>Delete {this.props.model}</button>
         </div>

@@ -70,8 +70,8 @@ class UpdateContact extends Component {
     return(
       <MainContainer>
         <TitleBar title='Update Contact'>
-          <Link to={`/contacts/${this.state.id}`}>
-            <div className="link-button">
+          <Link to={`/contacts/${this.state.id}`} className="link-button jelly">
+            <div>
               <h3>Back to Contact</h3>
             </div>
           </Link>

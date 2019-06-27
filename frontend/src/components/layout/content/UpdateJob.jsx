@@ -68,8 +68,8 @@ class UpdateJob extends Component {
     return(
       <MainContainer>
         <TitleBar title='Update Job'>
-          <Link to={`/jobs/${this.state.id}`}>
-            <div className="link-button">
+          <Link to={`/jobs/${this.state.id}`}  className="link-button jelly">
+            <div>
               <h3>Back to Job</h3>
             </div>
           </Link>

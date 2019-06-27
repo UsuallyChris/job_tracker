@@ -50,8 +50,8 @@ class AddJob extends Component {
     return(
       <MainContainer>
         <TitleBar title='Add Job'>
-          <Link to='/jobs'>
-            <div className="link-button">
+          <Link to='/jobs' className="link-button jelly">
+            <div>
               <h3>Back to Jobs</h3>
             </div>
           </Link>

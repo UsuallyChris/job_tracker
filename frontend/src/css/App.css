@@ -257,13 +257,28 @@ button {
   outline: none;
   border: none;
   background-color: #2ECC71;
+  border-radius: 5px;
 }
 
 .delete-button {
   background-color: #E74C3C;
 }
 
-button:hover {
+.link-button,
+.update-button {
+  text-decoration: none;
+  background-color: #2C3E50;
+  color: #fff;
+  padding: 0px 16px;
+  border-radius: 5px;
+}
+
+.update-button {
+  padding: 0.5em 1em;
+}
+
+button:hover,
+.jelly:hover {
   cursor: pointer;
   animation: jelly 0.5s;
 }

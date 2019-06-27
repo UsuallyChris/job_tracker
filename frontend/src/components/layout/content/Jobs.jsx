@@ -20,8 +20,8 @@ class Jobs extends Component {
     return(
       <MainContainer>
         <TitleBar title='Jobs'>
-        <Link to='/jobs/add'>
-          <div className="link-button">
+        <Link to='/jobs/add' className="link-button jelly">
+          <div>
             <h3>Add New Job</h3>
           </div>
         </Link>

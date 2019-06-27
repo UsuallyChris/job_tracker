@@ -20,8 +20,8 @@ class Contacts extends Component {
     return(
       <MainContainer>
         <TitleBar title='Contacts'>
-        <Link to='/contacts/add'>
-          <div className="link-button">
+        <Link to='/contacts/add' className="link-button jelly">
+          <div>
             <h3>Add New Contact</h3>
           </div>
         </Link>

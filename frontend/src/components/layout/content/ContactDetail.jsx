@@ -45,8 +45,8 @@ class ContactDetail extends Component {
     return(
       <MainContainer>
         <TitleBar title='Contact Detail'>
-        <Link to='/contacts'>
-          <div className="link-button">
+        <Link to='/contacts' className="link-button jelly">
+          <div>
             <h3>Back to Contacts</h3>
           </div>
         </Link>
