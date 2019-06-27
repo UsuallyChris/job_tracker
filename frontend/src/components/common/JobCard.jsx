@@ -13,7 +13,7 @@ function JobCard(props) {
   }
 
   return(
-    <Link to={`/jobs/${props.id}`} className="card card-shadow">
+    <Link to={`/jobs/${props.id}`} className={`card card-shadow`}>
       <div>
         <h2>{props.job_title} at {props.company}</h2>
         <div className="job-card-status">
