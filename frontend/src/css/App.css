@@ -128,6 +128,13 @@ body {
   text-decoration: none;
   padding: 16px;
   border-bottom: 2px solid #ECF0F1;
+  background-color: transparent;
+  transition: background-color 0.25s ease-in-out;
+}
+
+
+.menu a:hover {
+  background-color: hsla(0, 0%, 100%, 0.2);
 }
 
 /** CONTENT */
