@@ -20,7 +20,7 @@ function JobCard(props) {
 
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   const dateISO = parseISO(props.date_applied);
-  const formatted_date = `${months[dateISO.getUTCMonth()]} ${dateISO.getUTCDate()}, ${dateISO.getUTCFullYear()}`;
+  const formatted_date = `${months[dateISO.getMonth()]} ${dateISO.getDate()}, ${dateISO.getFullYear()}`;
 
   return(
     <Link to={`/jobs/${props.id}`} className={`card card-shadow ${job_status_style}`}>

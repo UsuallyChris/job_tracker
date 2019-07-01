@@ -79,7 +79,7 @@ class AddJob extends Component {
                 selected={this.state.date_applied} 
                 placeholderText='Date Applied'
                 allowSameDay={true}
-                dateFormat="MM/dd/yyyy"
+                dateFormat="MMMM dd, yyyy"
                 onChange={this.onChangeDate}
                 value={this.state.date_applied}
               />

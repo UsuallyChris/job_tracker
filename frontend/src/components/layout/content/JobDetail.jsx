@@ -56,7 +56,7 @@ class JobDetail extends Component {
 
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const dateISO = parseISO(this.state.date_applied);
-    const formatted_date = `${months[dateISO.getUTCMonth()]} ${dateISO.getUTCDate()}, ${dateISO.getUTCFullYear()}`;
+    const formatted_date = `${months[dateISO.getMonth()]} ${dateISO.getDate()}, ${dateISO.getFullYear()}`;
 
     return(
       <MainContainer>
