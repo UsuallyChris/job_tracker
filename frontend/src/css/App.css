@@ -243,7 +243,8 @@ body {
 input[type=text] {
   color: red;
   outline: none;
-  border: none;
+  border: 2px solid transparent;
+  border-bottom: 2px solid black;
 }
 
 /** BUTTONS */
