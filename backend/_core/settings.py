@@ -122,7 +122,7 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
 USE_TZ = True
 
@@ -136,3 +136,10 @@ STATIC_URL = '/static/'
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
 ]
+
+
+REST_FRAMEWORK = {
+    'DATETIME_INPUT_FORMATS': [
+        '%Y-%m-%d', '%m/%d/%Y', '%m/%d/%y'
+    ]
+}
