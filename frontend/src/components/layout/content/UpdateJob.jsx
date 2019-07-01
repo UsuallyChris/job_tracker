@@ -6,6 +6,11 @@ import axios from 'axios';
 import MainContainer from '../MainContainer';
 import TitleBar from '../../common/TitleBar';
 
+// Date Picker Import
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import parseISO from 'date-fns/parse/index';
+
 class UpdateJob extends Component {
   constructor(props) {
     super(props);
@@ -19,6 +24,7 @@ class UpdateJob extends Component {
   
   this.onSubmit = this.onSubmit.bind(this);
   this.onChange = this.onChange.bind(this);
+  this.onChangeDate = this.onChangeDate.bind(this);
   }
 
   componentDidMount() {
@@ -28,7 +34,7 @@ class UpdateJob extends Component {
           id: res.data.id,
           job_title: res.data.job_title,
           company: res.data.company,
-          date_applied: res.data.date_applied,
+          date_applied: parseISO(res.data.date_applied),
         });
       })
       .catch(err => {
@@ -40,6 +46,12 @@ class UpdateJob extends Component {
     this.setState({
       [e.target.name]: e.target.value
     });
+  }
+
+  onChangeDate(date) {
+    this.setState({
+      date_applied: date
+    })
   }
 
   onSubmit(e) {
@@ -80,7 +92,14 @@ class UpdateJob extends Component {
               <h2>Company:</h2>
               <input type="text" name="company" onChange={this.onChange} value={this.state.company}/>
               <h2>Date Applied:</h2>
-              <input type="text" name="date_applied" onChange={this.onChange} value={this.state.date_applied}/>
+              <DatePicker
+                selected={this.state.date_applied} 
+                placeholderText='Date Applied'
+                allowSameDay={true}
+                dateFormat="MM/dd/yy"
+                onChange={this.onChangeDate}
+                value={this.state.date_applied}
+              />
               <div className="form-button">
                 <button type="submit">Update Job</button>
               </div>

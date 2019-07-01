@@ -136,10 +136,3 @@ STATIC_URL = '/static/'
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
 ]
-
-
-REST_FRAMEWORK = {
-    'DATETIME_INPUT_FORMATS': [
-        '%Y-%m-%d', '%m/%d/%Y', '%m/%d/%y'
-    ]
-}
