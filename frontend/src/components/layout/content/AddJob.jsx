@@ -9,6 +9,10 @@ import { addJob } from '../../../actions/jobs';
 import MainContainer from '../MainContainer';
 import TitleBar from '../../common/TitleBar';
 
+// Date Picker Import
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 class AddJob extends Component {
   constructor(props) {
     super(props);
@@ -21,12 +25,19 @@ class AddJob extends Component {
   
   this.onSubmit = this.onSubmit.bind(this);
   this.onChange = this.onChange.bind(this);
+  this.onChangeDate = this.onChangeDate.bind(this);
   }
 
   onChange(e) {
     this.setState({
       [e.target.name]: e.target.value
     });
+  }
+
+  onChangeDate(date) {
+    this.setState({
+      date_applied: date
+    })
   }
 
   onSubmit(e) {
@@ -64,7 +75,14 @@ class AddJob extends Component {
               <h2>Company:</h2>
               <input type="text" name="company" onChange={this.onChange} value={this.state.company}/>
               <h2>Date Applied:</h2>
-              <input type="text" name="date_applied" onChange={this.onChange} value={this.state.date_applied}/>
+              <DatePicker
+                selected={this.state.date_applied} 
+                placeholderText='Date Applied'
+                allowSameDay={true}
+                dateFormat="MM/dd/yyyy"
+                onChange={this.onChangeDate}
+                value={this.state.date_applied}
+              />
               <div className="form-button">
                 <button type="submit">Add Job</button>
               </div>
