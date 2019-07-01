@@ -32,7 +32,6 @@ class JobDetail extends Component {
           job_status: res.data.job_status,
           httpstatus: res.status
         });
-        console.log(res);
       })
       .catch(err => {
         console.log(err.response);

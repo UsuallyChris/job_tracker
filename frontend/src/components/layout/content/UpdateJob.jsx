@@ -30,7 +30,6 @@ class UpdateJob extends Component {
           company: res.data.company,
           date_applied: res.data.date_applied,
         });
-        console.log(res);
       })
       .catch(err => {
         console.log(err.response);
@@ -49,7 +48,6 @@ class UpdateJob extends Component {
     const job = {company, date_applied, job_title};
     axios.put(`http://127.0.0.1:8000/api/jobs/${this.state.id}/`, job)
       .then(res => {
-        console.log(res);
         this.setState({
           to_dashboard: true
         })
