@@ -96,7 +96,7 @@ class UpdateJob extends Component {
                 selected={this.state.date_applied} 
                 placeholderText='Date Applied'
                 allowSameDay={true}
-                dateFormat="MMMM dd, yyyy"
+                dateFormat="MMMM d, yyyy"
                 onChange={this.onChangeDate}
                 value={this.state.date_applied}
               />
