@@ -20,6 +20,7 @@ class AddJob extends Component {
       company: '',
       date_applied: '',
       job_title: '',
+      job_status: 'APP',
       to_dashboard: false
     }
   
@@ -42,8 +43,8 @@ class AddJob extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    const {company, date_applied, job_title} = this.state;
-    const job = {company, date_applied, job_title};
+    const {company, date_applied, job_title, job_status} = this.state;
+    const job = {company, date_applied, job_title, job_status};
     this.props.addJob(job);
     this.setState({
       to_dashboard: true
@@ -83,6 +84,12 @@ class AddJob extends Component {
                 onChange={this.onChangeDate}
                 value={this.state.date_applied}
               />
+              <h2>Job Status:</h2>
+              <select name="job_status" value={this.state.job_status} onChange={this.onChange}>
+                <option value={"APP"}>Applied</option>
+                <option value={"OFF"}>Offered</option>
+                <option value={"REJ"}>Rejected</option>
+              </select>
               <div className="form-button">
                 <button type="submit">Add Job</button>
               </div>
