@@ -19,7 +19,6 @@ class JobDetail extends Component {
       company: '',
       date_applied: '',
       job_status: '',
-      httpstatus: ''
     }
   }
 
@@ -32,7 +31,6 @@ class JobDetail extends Component {
           company: res.data.company,
           date_applied: res.data.date_applied,
           job_status: res.data.job_status,
-          httpstatus: res.status
         });
       })
       .catch(err => {

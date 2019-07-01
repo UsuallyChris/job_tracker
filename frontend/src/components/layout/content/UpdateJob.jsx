@@ -18,6 +18,7 @@ class UpdateJob extends Component {
       company: '',
       date_applied: '',
       job_title: '',
+      job_status: '',
       id: '',
       to_dashboard: false
     }
@@ -35,6 +36,7 @@ class UpdateJob extends Component {
           job_title: res.data.job_title,
           company: res.data.company,
           date_applied: parseISO(res.data.date_applied),
+          job_status: res.data.job_status
         });
       })
       .catch(err => {
@@ -56,8 +58,8 @@ class UpdateJob extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    const {company, date_applied, job_title} = this.state;
-    const job = {company, date_applied, job_title};
+    const {company, date_applied, job_title, job_status} = this.state;
+    const job = {company, date_applied, job_title, job_status};
     axios.put(`http://127.0.0.1:8000/api/jobs/${this.state.id}/`, job)
       .then(res => {
         this.setState({
@@ -100,6 +102,11 @@ class UpdateJob extends Component {
                 onChange={this.onChangeDate}
                 value={this.state.date_applied}
               />
+              <select name="job_status" value={this.state.job_status} onChange={this.onChange}>
+                <option value={"APP"}>Applied</option>
+                <option value={"OFF"}>Offered</option>
+                <option value={"REJ"}>Rejected</option>
+              </select>
               <div className="form-button">
                 <button type="submit">Update Job</button>
               </div>
