@@ -102,6 +102,7 @@ class UpdateJob extends Component {
                 onChange={this.onChangeDate}
                 value={this.state.date_applied}
               />
+              <h2>Job Status:</h2>
               <select name="job_status" value={this.state.job_status} onChange={this.onChange}>
                 <option value={"APP"}>Applied</option>
                 <option value={"OFF"}>Offered</option>
