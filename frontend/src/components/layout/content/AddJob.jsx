@@ -27,6 +27,7 @@ class AddJob extends Component {
   this.onSubmit = this.onSubmit.bind(this);
   this.onChange = this.onChange.bind(this);
   this.onChangeDate = this.onChangeDate.bind(this);
+  this.onChangeDateRaw = this.onChangeDateRaw.bind(this);
   }
 
   onChange(e) {
@@ -39,6 +40,10 @@ class AddJob extends Component {
     this.setState({
       date_applied: date
     })
+  }
+
+  onChangeDateRaw(e) {
+    e.preventDefault();
   }
 
   onSubmit(e) {
@@ -82,6 +87,7 @@ class AddJob extends Component {
                 allowSameDay={true}
                 dateFormat="MMMM d, yyyy"
                 onChange={this.onChangeDate}
+                onChangeRaw={this.onChangeDateRaw}
                 value={this.state.date_applied}
               />
               <h2>Job Status:</h2>
