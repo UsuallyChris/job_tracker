@@ -9,7 +9,7 @@ export default function(state = initialState, action) {
     case GET_JOBS:
       return{
         ...state,
-        jobs: action.payload
+        jobs: action.payload.sort( (a,b) => a.id < b.id )
       }
 
     case DELETE_JOB:
