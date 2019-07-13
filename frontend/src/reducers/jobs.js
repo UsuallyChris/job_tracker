@@ -15,13 +15,13 @@ export default function(state = initialState, action) {
     case DELETE_JOB:
       return{
         ...state,
-        jobs: state.jobs.filter(job => job.id !== action.payload)
+        jobs: state.jobs.filter(job => job.id !== action.payload).sort( (a,b) => a.id < b.id )
       };
 
     case ADD_JOB:
       return{
         ...state,
-        jobs: [...state.jobs, action.payload]
+        jobs: [...state.jobs, action.payload].sort( (a,b) => a.id < b.id )
       }
 
     default:
