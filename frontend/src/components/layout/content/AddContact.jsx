@@ -9,8 +9,9 @@ import { addContact } from '../../../actions/contacts';
 import MainContainer from '../MainContainer';
 import TitleBar from '../../common/TitleBar';
 
-// Formik Imports
-import { Formik, Form, Field } from 'formik';
+// Formik and Yup Imports
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 
 class AddContact extends Component {
   constructor(props) {
@@ -19,6 +20,18 @@ class AddContact extends Component {
       to_dashboard: false
     }
   }
+
+  ContactSchema = Yup.object().shape({
+    name: Yup.string()
+      .min(1, 'Length must be at least one character.')
+      .required('Name is a required field.'),
+    company: Yup.string()
+      .min(1, 'Length must be at least one character.')
+      .required('Company is a required field.'),
+    phone_number: Yup.string(),
+    email: Yup.string()
+      .email('Provide a valid email.')
+  })
 
   render() {
     
@@ -46,6 +59,7 @@ class AddContact extends Component {
                 phone_number: '',
                 email: ''
               }}
+              validationSchema={this.ContactSchema}
               onSubmit={(values, { setSubmitting }) => {
                 const { name, company, phone_number, email } = values;
                 const contact = { name, company, phone_number, email }
@@ -60,12 +74,16 @@ class AddContact extends Component {
                 <Form>
                   <h2>Name:</h2>
                   <Field type="text" name="name" />
+                  <ErrorMessage name="name" />
                   <h2>Company:</h2>
                   <Field type="text" name="company" />
+                  <ErrorMessage name="company" />
                   <h2>Phone Number:</h2>
                   <Field type="text" name="phone_number" />
+                  <ErrorMessage name="phone_number" />
                   <h2>Email:</h2>
                   <Field type="text" name="email" />
+                  <ErrorMessage name="email" />
                   <div className="form-button">
                     <button type="submit" disabled={isSubmitting}>Add Contact</button>
                   </div>
