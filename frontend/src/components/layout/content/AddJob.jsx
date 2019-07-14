@@ -9,51 +9,16 @@ import { addJob } from '../../../actions/jobs';
 import MainContainer from '../MainContainer';
 import TitleBar from '../../common/TitleBar';
 
-// Date Picker Import
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+// Formik and Yup Imports
+import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
 
 class AddJob extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      company: '',
-      date_applied: '',
-      job_title: '',
-      job_status: 'APP',
       to_dashboard: false
     }
-  
-  this.onSubmit = this.onSubmit.bind(this);
-  this.onChange = this.onChange.bind(this);
-  this.onChangeDate = this.onChangeDate.bind(this);
-  this.onChangeDateRaw = this.onChangeDateRaw.bind(this);
-  }
-
-  onChange(e) {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  }
-
-  onChangeDate(date) {
-    this.setState({
-      date_applied: date
-    })
-  }
-
-  onChangeDateRaw(e) {
-    e.preventDefault();
-  }
-
-  onSubmit(e) {
-    e.preventDefault();
-    const {company, date_applied, job_title, job_status} = this.state;
-    const job = {company, date_applied, job_title, job_status};
-    this.props.addJob(job);
-    this.setState({
-      to_dashboard: true
-    })
   }
 
   render() {
@@ -75,31 +40,40 @@ class AddJob extends Component {
         </TitleBar>
         <div className="form-container">
           <div className="form-card card-shadow">
-            <form onSubmit={this.onSubmit}>
-              <h2>Job Title:</h2>
-              <input type="text" name="job_title" onChange={this.onChange} value={this.state.job_title}/>
-              <h2>Company:</h2>
-              <input type="text" name="company" onChange={this.onChange} value={this.state.company}/>
-              <h2>Date Applied:</h2>
-              <DatePicker
-                selected={this.state.date_applied} 
-                placeholderText='Date Applied'
-                allowSameDay={true}
-                dateFormat="MMMM d, yyyy"
-                onChange={this.onChangeDate}
-                onChangeRaw={this.onChangeDateRaw}
-                value={this.state.date_applied}
-              />
-              <h2>Job Status:</h2>
-              <select name="job_status" value={this.state.job_status} onChange={this.onChange}>
-                <option value={"APP"}>Applied</option>
-                <option value={"OFF"}>Offered</option>
-                <option value={"REJ"}>Rejected</option>
-              </select>
-              <div className="form-button">
-                <button type="submit">Add Job</button>
-              </div>
-            </form>
+            <Formik
+              initialValues={{
+                company: '',
+                job_title: '',
+                job_status: 'APP'
+              }}
+              onSubmit={(values, { setSubmitting, }) => {
+                const {company, job_title, job_status} = values;
+                const job = {company, job_title, job_status};
+                this.props.addJob(job);
+                setSubmitting(false);
+                this.setState({
+                  to_dashboard: true
+                })
+              }}
+            >
+              {({ isSubmitting }) => (
+                <Form>
+                  <h2>Job Title:</h2>
+                  <Field type="text" name="job_title" />
+                  <h2>Company:</h2>
+                  <Field type="text" name="company" />
+                  <h2>Job Status:</h2>
+                  <Field component="select" name="job_status">
+                    <option value="APP">Applied</option>
+                    <option value="OFF">Offered</option>
+                    <option value="REJ">Rejected</option>
+                  </Field>
+                  <div className="form-button">
+                    <button type="submit" disabled={isSubmitting}>Add Job</button>
+                  </div>
+                </Form>
+              )}
+            </Formik>
           </div>
         </div>
       </MainContainer>
