@@ -15,7 +15,7 @@ export default function(state = initialState, action) {
     case DELETE_JOB:
       return{
         ...state,
-        jobs: state.jobs.filter(job => job.id !== action.payload).sort( (a,b) => a.id < b.id )
+        jobs: state.jobs.filter(job => job.id !== action.payload)
       };
 
     case ADD_JOB:

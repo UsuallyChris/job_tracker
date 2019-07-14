@@ -15,7 +15,7 @@ export default function(state = initialState, action) {
     case DELETE_CONTACT:
       return{
         ...state,
-        contacts: state.contacts.filter(contact => contact.id !== action.payload).sort( (a,b) => a.id < b.id)
+        contacts: state.contacts.filter(contact => contact.id !== action.payload)
       };
 
     case ADD_CONTACT:
