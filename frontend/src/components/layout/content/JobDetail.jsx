@@ -7,9 +7,6 @@ import MainContainer from '../MainContainer';
 import TitleBar from '../../common/TitleBar';
 import JobInfo from '../../common/JobInfo';
 
-import parseISO from 'date-fns/parse/index';
-
-
 class JobDetail extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +14,6 @@ class JobDetail extends Component {
       id: '',
       job_title: '',
       company: '',
-      date_applied: '',
       job_status: '',
     }
   }
@@ -29,15 +25,11 @@ class JobDetail extends Component {
           id: res.data.id,
           job_title: res.data.job_title,
           company: res.data.company,
-          date_applied: res.data.date_applied,
           job_status: res.data.job_status,
         });
       })
       .catch(err => {
         console.log(err.response);
-        this.setState({
-          httpstatus: err.response.status
-        })
       })
   }
 
@@ -52,10 +44,6 @@ class JobDetail extends Component {
       job_status = "Rejected";
     }
 
-    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    const dateISO = parseISO(this.state.date_applied);
-    const formatted_date = `${months[dateISO.getMonth()]} ${dateISO.getDate()}, ${dateISO.getFullYear()}`;
-
     return(
       <MainContainer>
         <TitleBar title='Job Detail'>
@@ -68,7 +56,6 @@ class JobDetail extends Component {
         <JobInfo 
           job_title={this.state.job_title}
           company={this.state.company}
-          date_applied={formatted_date}
           job_status={job_status}
           id={this.state.id}
         />

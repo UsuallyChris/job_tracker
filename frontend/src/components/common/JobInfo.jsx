@@ -11,8 +11,6 @@ function JobInfo(props) {
         <p>{props.job_title}</p>
         <h2>Company:</h2>
         <p>{props.company}</p>
-        <h2>Date Applied:</h2>
-        <p>{props.date_applied}</p>
         <h2>Job Status:</h2>
         <p>{props.job_status}</p>
         <InfoButtons 

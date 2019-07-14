@@ -6,38 +6,32 @@ import axios from 'axios';
 import MainContainer from '../MainContainer';
 import TitleBar from '../../common/TitleBar';
 
-// Date Picker Import
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import parseISO from 'date-fns/parse/index';
+// Formik and Yup Imports
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 
 class UpdateJob extends Component {
   constructor(props) {
     super(props);
     this.state = {
       company: '',
-      date_applied: '',
       job_title: '',
       job_status: '',
       id: '',
+      loading: true,
       to_dashboard: false
     }
-  
-  this.onSubmit = this.onSubmit.bind(this);
-  this.onChange = this.onChange.bind(this);
-  this.onChangeDate = this.onChangeDate.bind(this);
-  this.onChangeDateRaw = this.onChangeDateRaw.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     axios.get(`http://127.0.0.1:8000/api/jobs/${this.props.match.params.id}/`)
       .then(res => {
         this.setState({
           id: res.data.id,
           job_title: res.data.job_title,
           company: res.data.company,
-          date_applied: parseISO(res.data.date_applied),
-          job_status: res.data.job_status
+          job_status: res.data.job_status,
+          loading: false
         });
       })
       .catch(err => {
@@ -45,40 +39,37 @@ class UpdateJob extends Component {
       })
   }
 
-  onChange(e) {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  }
-
-  onChangeDate(date) {
-    this.setState({
-      date_applied: date
-    })
-  }
-
-  onChangeDateRaw(e)  {
-    e.preventDefault();
-  }
-
-  onSubmit(e) {
-    e.preventDefault();
-    const {company, date_applied, job_title, job_status} = this.state;
-    const job = {company, date_applied, job_title, job_status};
-    axios.put(`http://127.0.0.1:8000/api/jobs/${this.state.id}/`, job)
-      .then(res => {
-        this.setState({
-          to_dashboard: true
-        })
-      })
-      .catch(err => console.log(err.response));
-  }
+  JobSchema = Yup.object().shape({
+    job_title: Yup.string()
+      .required('Job Title is a required field.'),
+    company: Yup.string()
+      .required('Company is a required field.')
+  })
 
   render() {
 
     if(this.state.to_dashboard === true) {
       return(
         <Redirect exact to={`/jobs/${this.state.id}`} />
+      )
+    }
+
+    if(this.state.loading === true) {
+      return(
+        <MainContainer>
+          <TitleBar title='Update Job'>
+            <Link to={`/jobs/${this.state.id}`}  className="link-button jelly">
+              <div>
+                <h3>Back to Job</h3>
+              </div>
+            </Link>
+          </TitleBar>
+          <div className="form-container">
+            <div className="form-card shadow">
+              <h1>Loading</h1>
+            </div>
+          </div>
+        </MainContainer>
       )
     }
 
@@ -92,32 +83,48 @@ class UpdateJob extends Component {
           </Link>
         </TitleBar>
         <div className="form-container">
-          <div className="form-card card-shadow">
-            <form onSubmit={this.onSubmit}>
-              <h2>Job Title:</h2>
-              <input type="text" name="job_title" onChange={this.onChange} value={this.state.job_title}/>
-              <h2>Company:</h2>
-              <input type="text" name="company" onChange={this.onChange} value={this.state.company}/>
-              <h2>Date Applied:</h2>
-              <DatePicker
-                selected={this.state.date_applied} 
-                placeholderText='Date Applied'
-                allowSameDay={true}
-                dateFormat="MMMM d, yyyy"
-                onChange={this.onChangeDate}
-                onChangeRaw={this.onChangeDateRaw}
-                value={this.state.date_applied}
-              />
-              <h2>Job Status:</h2>
-              <select name="job_status" value={this.state.job_status} onChange={this.onChange}>
-                <option value={"APP"}>Applied</option>
-                <option value={"OFF"}>Offered</option>
-                <option value={"REJ"}>Rejected</option>
-              </select>
-              <div className="form-button">
-                <button type="submit">Update Job</button>
-              </div>
-            </form>
+          <div className="form-card shadow">
+            <Formik
+              initialValues={{
+                id: this.state.id,
+                job_title: this.state.job_title,
+                company: this.state.company,
+                job_status: this.state.job_status
+              }}
+              validationSchema={this.JobSchema}
+              onSubmit={(values, { setSubmitting }) => {
+                const {company, job_title, job_status} = values;
+                const job = {company, job_title, job_status};
+                axios.put(`http://127.0.0.1:8000/api/jobs/${this.state.id}/`, job)
+                  .then(res => {
+                    setSubmitting(false);
+                    this.setState({
+                      to_dashboard: true
+                    })
+                  })
+                  .catch(err => console.log(err.response));
+              }}
+            >
+              {({ isSubmitting }) => (
+                <Form>
+                  <h2>Job Title:</h2>
+                  <Field type="text" name="job_title" />
+                  <ErrorMessage name="job_title"/>
+                  <h2>Company:</h2>
+                  <Field type="text" name="company" />
+                  <ErrorMessage name="company"/>
+                  <h2>Job Status:</h2>
+                  <Field component="select" name="job_status">
+                    <option value="APP">Applied</option>
+                    <option value="OFF">Offered</option>
+                    <option value="REJ">Rejected</option>
+                  </Field>
+                  <div className="form-button">
+                    <button type="submit" disabled={isSubmitting}>Update Job</button>
+                  </div>
+                </Form>
+              )}
+            </Formik>
           </div>
         </div>
       </MainContainer>

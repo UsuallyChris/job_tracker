@@ -46,7 +46,7 @@ class AddJob extends Component {
           </Link>
         </TitleBar>
         <div className="form-container">
-          <div className="form-card card-shadow">
+          <div className="form-card shadow">
             <Formik
               initialValues={{
                 job_title: '',
