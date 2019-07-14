@@ -10,7 +10,7 @@ import MainContainer from '../MainContainer';
 import TitleBar from '../../common/TitleBar';
 
 // Formik and Yup Imports
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
 class AddJob extends Component {
@@ -20,6 +20,13 @@ class AddJob extends Component {
       to_dashboard: false
     }
   }
+
+  JobSchema = Yup.object().shape({
+    job_title: Yup.string()
+      .required('Job Title is a required field.'),
+    company: Yup.string()
+      .required('Company is a required field.')
+  })
 
   render() {
 
@@ -42,10 +49,11 @@ class AddJob extends Component {
           <div className="form-card card-shadow">
             <Formik
               initialValues={{
-                company: '',
                 job_title: '',
+                company: '',
                 job_status: 'APP'
               }}
+              validationSchema={this.JobSchema}
               onSubmit={(values, { setSubmitting, }) => {
                 const {company, job_title, job_status} = values;
                 const job = {company, job_title, job_status};
@@ -60,8 +68,10 @@ class AddJob extends Component {
                 <Form>
                   <h2>Job Title:</h2>
                   <Field type="text" name="job_title" />
+                  <ErrorMessage name="job_title"/>
                   <h2>Company:</h2>
                   <Field type="text" name="company" />
+                  <ErrorMessage name="company"/>
                   <h2>Job Status:</h2>
                   <Field component="select" name="job_status">
                     <option value="APP">Applied</option>
