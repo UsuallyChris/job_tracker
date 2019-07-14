@@ -137,6 +137,11 @@ body {
   background-color: hsla(0, 0%, 100%, 0.2);
 }
 
+.menu-content-container h1,
+.menu-content-container h3 {
+  color: #EEE8AA;
+}
+
 /** CONTENT */
 .title-bar {
   margin: 2.5% 2.5% 32px;
@@ -245,10 +250,6 @@ input[type=text] {
   outline: none;
   border: 2px solid transparent;
   border-bottom: 2px solid black;
-}
-
-.error {
-  display: none;
 }
 
 /** BUTTONS */
