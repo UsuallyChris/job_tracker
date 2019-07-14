@@ -3,10 +3,10 @@ import React from 'react';
 // Component Imports
 import InfoButtons from '../common/InfoButtons';
 
-function JobInfo(props) {
+function ContactInfo(props) {
   return(
     <div className="info-container">
-      <div className="info-card card-shadow">
+      <div className="info-card shadow">
         <h2>Name:</h2>
         <p>{props.name}</p>
         <h2>Company:</h2>
@@ -25,4 +25,4 @@ function JobInfo(props) {
   );
 }
 
-export default JobInfo;
+export default ContactInfo;

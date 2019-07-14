@@ -6,7 +6,7 @@ import InfoButtons from '../common/InfoButtons';
 function JobInfo(props) {
   return(
     <div className="info-container">
-      <div className="info-card card-shadow">
+      <div className="info-card shadow">
         <h2>Job Title:</h2>
         <p>{props.job_title}</p>
         <h2>Company:</h2>
