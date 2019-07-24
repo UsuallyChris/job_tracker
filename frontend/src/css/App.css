@@ -246,10 +246,11 @@ body {
 }
 
 input[type=text] {
-  color: red;
   outline: none;
-  border: 2px solid transparent;
-  border-bottom: 2px solid black;
+}
+
+input[type=text]:focus {
+  outline: none;
 }
 
 /** BUTTONS */
