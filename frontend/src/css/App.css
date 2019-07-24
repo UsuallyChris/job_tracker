@@ -253,6 +253,27 @@ input[type=text]:focus {
   outline: none;
 }
 
+.input-wrapper {
+  padding-bottom: 25px;
+  position: relative;
+}
+
+.error-message {
+  color: #E74C3C;
+  background-color: #FFCDD2;
+  height: 24px;
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 0 5px 5px;
+  font-size: 1rem;
+}
+
 /** BUTTONS */
 
 button {
