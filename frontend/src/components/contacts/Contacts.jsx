@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 // Redux Imports
 import { connect } from 'react-redux';
-import { getContacts } from '../../../actions/contacts';
+import { getContacts } from '../../actions/contacts';
 
 // Component Imports
-import MainContainer from '../MainContainer';
-import TitleBar from '../../common/TitleBar';
-import ContactCard from '../../common/ContactCard';
+import MainContainer from '../layout/MainContainer';
+import TitleBar from '../common/TitleBar';
+import ContactCard from '../contacts/ContactCard';
 
 class Contacts extends Component {
 

@@ -3,8 +3,8 @@ import { Redirect, Link } from 'react-router-dom';
 import axios from 'axios';
 
 // Component Imports
-import MainContainer from '../MainContainer';
-import TitleBar from '../../common/TitleBar';
+import MainContainer from '../layout/MainContainer';
+import TitleBar from '../common/TitleBar';
 
 // Formik and Yup Imports
 import { Formik, Form, Field, ErrorMessage } from 'formik';

@@ -14,16 +14,16 @@ import './css/Normalize.css';
 import './css/App.css';
 
 // Jobs
-import Jobs from './components/layout/content/Jobs';
-import AddJob from './components/layout/content/AddJob';
-import JobDetail from './components/layout/content/JobDetail';
-import UpdateJob from './components/layout/content/UpdateJob';
+import Jobs from './components/jobs/Jobs';
+import AddJob from './components/jobs/AddJob';
+import JobDetail from './components/jobs/JobDetail';
+import UpdateJob from './components/jobs/UpdateJob';
 
 // Contacts
-import Contacts from './components/layout/content/Contacts';
-import AddContact from './components/layout/content/AddContact';
-import ContactDetail from './components/layout/content/ContactDetail';
-import UpdateContact from './components/layout/content/UpdateContact';
+import Contacts from './components/contacts/Contacts';
+import AddContact from './components/contacts/AddContact';
+import ContactDetail from './components/contacts/ContactDetail';
+import UpdateContact from './components/contacts/UpdateContact';
 
 
 function App() {

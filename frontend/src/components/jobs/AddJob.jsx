@@ -3,11 +3,11 @@ import { Redirect, Link } from 'react-router-dom';
 
 // Redux Imports
 import { connect } from 'react-redux';
-import { addJob } from '../../../actions/jobs';
+import { addJob } from '../../actions/jobs';
 
 // Component Imports
-import MainContainer from '../MainContainer';
-import TitleBar from '../../common/TitleBar';
+import MainContainer from '../layout/MainContainer';
+import TitleBar from '../common/TitleBar';
 
 // Formik and Yup Imports
 import { Formik, Form, Field, ErrorMessage } from 'formik';

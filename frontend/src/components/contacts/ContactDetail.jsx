@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 // Component Imports
-import MainContainer from '../MainContainer';
-import TitleBar from '../../common/TitleBar';
-import ContactInfo from '../../common/ContactInfo';
+import MainContainer from '../layout/MainContainer';
+import TitleBar from '../common/TitleBar';
+import ContactInfo from './ContactInfo';
 
 class ContactDetail extends Component {
   constructor(props) {

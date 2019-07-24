@@ -1,6 +1,6 @@
 import React from 'react';
 import LeftContainer from './menu/LeftContainer';
-import RightContainer from './content/RightContainer';
+import RightContainer from './RightContainer';
 
 function MainContainer(props) {
   return (

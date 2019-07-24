@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 // Redux Imports
 import { connect } from 'react-redux';
-import { getJobs } from '../../../actions/jobs';
+import { getJobs } from '../../actions/jobs';
 
 // Component Imports
-import MainContainer from '../MainContainer';
-import TitleBar from '../../common/TitleBar';
-import JobCard from '../../common/JobCard'
+import MainContainer from '../layout/MainContainer';
+import TitleBar from '../common/TitleBar';
+import JobCard from '../jobs/JobCard';
 
 class Jobs extends Component {
 
