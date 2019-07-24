@@ -117,17 +117,25 @@ class UpdateContact extends Component {
               {({ isSubmitting }) => (
                 <Form>
                   <h2>Name:</h2>
-                  <Field type="text" name="name" />
-                  <ErrorMessage name="name"/>
+                  <div className="input-wrapper">
+                    <Field type="text" name="name" />
+                    <ErrorMessage name="name"  render={msg => <span className="error-message">{msg}</span>}/>
+                  </div>
                   <h2>Company:</h2>
-                  <Field type="text" name="company" />
-                  <ErrorMessage name="company"/>
+                  <div className="input-wrapper">
+                    <Field type="text" name="company" />
+                    <ErrorMessage name="company"  render={msg => <span className="error-message">{msg}</span>}/>
+                  </div>
                   <h2>Phone Number:</h2>
-                  <Field type="text" name="phone_number" />
-                  <ErrorMessage name="phone_number"/>
+                  <div className="input-wrapper">
+                    <Field type="text" name="phone_number" />
+                    <ErrorMessage name="phone_number"  render={msg => <span className="error-message">{msg}</span>}/>
+                  </div>
                   <h2>Email:</h2>
-                  <Field type="text" name="email" />
-                  <ErrorMessage name="email"/>
+                  <div className="input-wrapper">
+                    <Field type="text" name="email" />
+                    <ErrorMessage name="email"  render={msg => <span className="error-message">{msg}</span>}/>
+                  </div>
                   <div className="form-button">
                     <button type="submit" disabled={isSubmitting}>Update Contact</button>
                   </div>
