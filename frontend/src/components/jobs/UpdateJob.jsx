@@ -108,11 +108,15 @@ class UpdateJob extends Component {
               {({ isSubmitting }) => (
                 <Form>
                   <h2>Job Title:</h2>
-                  <Field type="text" name="job_title" />
-                  <ErrorMessage name="job_title"/>
+                  <div className="input-wrapper">
+                    <Field type="text" name="job_title" />
+                    <ErrorMessage name="job_title" render={msg => <span className="error-message">{msg}</span>}/>
+                  </div>
                   <h2>Company:</h2>
-                  <Field type="text" name="company" />
-                  <ErrorMessage name="company"/>
+                  <div className="input-wrapper">
+                    <Field type="text" name="company"/>
+                    <ErrorMessage name="company" render={msg => <span className="error-message">{msg}</span>}/>
+                  </div>
                   <h2>Job Status:</h2>
                   <Field component="select" name="job_status">
                     <option value="APP">Applied</option>
