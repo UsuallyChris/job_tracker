@@ -360,7 +360,7 @@ button:hover,
 }
 
 /** RESPONSIVE STYLES */
-@media only screen and (max-width: 1451px) {
+@media only screen and (max-width: 1450px) {
   .left-container{
     width: 33vw;
   }
@@ -375,12 +375,108 @@ button:hover,
   }
 }
 
-@media only screen and (max-width: 1101px) {
+@media only screen and (max-width: 1100px) {
   .left-container {
     width: 40vw;
   }
 
   .right-container {
     width: 65vw;
+  }
+
+  .form-card {
+    width: 100%;
+  }
+
+  form {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .main-container {
+    flex-direction: column;
+  }
+
+  .left-container {
+    width: 100vw;
+    height: 15vh;
+  }
+
+  .menu-container {
+    width: 90%;
+  }
+
+  .menu-content-container {
+    position: relative;
+  }
+
+  .menu-content-container h1 {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu-content-container h3 {
+    display: none;
+  }
+
+  .menu {
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: row;
+    position: absolute;
+    bottom: 10px;
+  }
+
+  .menu a {
+    width: 50%;
+    text-align: center;
+  }
+
+  .menu a:first-child {
+    border-right: 2px solid #ECF0F1;
+  }
+
+  .right-container {
+    width: 100vw;
+    height: 88vh;
+    top: 13vh;
+  }
+
+  .right-content-container {
+    padding: 5%;
+  }
+
+  .form-card {
+    width: 100%;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  .title-bar {
+    flex-direction: column;
+  }
+
+  .info-container {
+    height: auto;
+  }
+
+  .info-buttons {
+    flex-direction: column;
+    justify-content: space-between;
+    height: 75px;
+  }
+}
+
+@media only screen and (max-height: 999px) {
+  .menu-content-container h1 {
+    display: none;
+  }
+
+  .menu {
+    bottom: 22%;
   }
 }

@@ -23,11 +23,9 @@ class AddContact extends Component {
 
   ContactSchema = Yup.object().shape({
     name: Yup.string()
-      .min(1, 'Length must be at least one character.')
-      .required('Name is a required field.'),
+      .required('Name required.'),
     company: Yup.string()
-      .min(1, 'Length must be at least one character.')
-      .required('Company is a required field.'),
+      .required('Company is required.'),
     phone_number: Yup.string(),
     email: Yup.string()
       .email('Provide a valid email.')

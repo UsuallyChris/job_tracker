@@ -23,9 +23,9 @@ class AddJob extends Component {
 
   JobSchema = Yup.object().shape({
     job_title: Yup.string()
-      .required('Job Title is a required field.'),
+      .required('Job Title required.'),
     company: Yup.string()
-      .required('Company is a required field.')
+      .required('Company is required.')
   })
 
   render() {
