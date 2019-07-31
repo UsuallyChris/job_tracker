@@ -25,7 +25,7 @@ SECRET_KEY = '0t_xccl0osfj0$x6%zhktk$plps_2h!qes@h-=0i1s_ejzltvt'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['intense-everglades-34021.herokuapp.com/', '127.0.0.1']
+ALLOWED_HOSTS = ['intense-everglades-34021.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
