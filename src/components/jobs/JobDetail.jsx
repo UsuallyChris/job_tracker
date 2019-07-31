@@ -19,7 +19,7 @@ class JobDetail extends Component {
   }
 
   componentDidMount() {
-    axios.get(`http://127.0.0.1:8000/api/jobs/${this.props.match.params.id}/`)
+    axios.get(`/api/jobs/${this.props.match.params.id}/`)
       .then(res => {
         this.setState({
           id: res.data.id,

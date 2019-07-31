@@ -3,7 +3,7 @@ import axios from 'axios';
 import { GET_JOBS, DELETE_JOB, ADD_JOB, } from './types';
 
 export const getJobs = () => dispatch => {
-  axios.get('http://127.0.0.1:8000/api/jobs/')
+  axios.get('/api/jobs/')
     .then(res => {
       dispatch({
         type: GET_JOBS,
@@ -13,7 +13,7 @@ export const getJobs = () => dispatch => {
 }
 
 export const deleteJob = (id) => dispatch => {
-  axios.delete(`http://127.0.0.1:8000/api/jobs/${id}/`)
+  axios.delete(`/api/jobs/${id}/`)
     .then(res => {
       dispatch({
         type: DELETE_JOB,
@@ -23,7 +23,7 @@ export const deleteJob = (id) => dispatch => {
 }
 
 export const addJob = (job) => dispatch => {
-  axios.post('http://127.0.0.1:8000/api/jobs/', job)
+  axios.post('/api/jobs/', job)
     .then(res => {
       dispatch({
         type: ADD_JOB,

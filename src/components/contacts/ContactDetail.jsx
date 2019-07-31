@@ -21,7 +21,7 @@ class ContactDetail extends Component {
   }
 
   componentDidMount() {
-    axios.get(`http://127.0.0.1:8000/api/contacts/${this.props.match.params.id}/`)
+    axios.get(`/api/contacts/${this.props.match.params.id}/`)
       .then(res => {
         this.setState({
           id: res.data.id,
