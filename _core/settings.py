@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +26,8 @@ SECRET_KEY = '0t_xccl0osfj0$x6%zhktk$plps_2h!qes@h-=0i1s_ejzltvt'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['intense-everglades-34021.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['intense-everglades-34021.herokuapp.com',
+                 '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -144,3 +146,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
 ]
+
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {'default': dj_database_url.config()}

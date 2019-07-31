@@ -9,6 +9,6 @@
       "**/*.pyc": true,
       "**/__pycache__": true
   },
-  "python.pythonPath": "/Users/chris/.virtualenvs/backend-R1tPtvnq",
+  "python.pythonPath": "/Users/chris/.virtualenvs/job_tracker-zcR0yKWR",
   "search.quickOpen.includeHistory": false
 }
