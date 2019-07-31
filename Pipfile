@@ -12,6 +12,8 @@ pylint-django = "*"
 djangorestframework = "*"
 django-cors-headers = "*"
 autopep8 = "*"
+gunicorn = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.7"

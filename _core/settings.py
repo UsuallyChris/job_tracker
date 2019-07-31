@@ -25,7 +25,7 @@ SECRET_KEY = '0t_xccl0osfj0$x6%zhktk$plps_2h!qes@h-=0i1s_ejzltvt'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['intense-everglades-34021.herokuapp.com/']
 
 
 # Application definition
@@ -131,6 +131,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # CORS ORIGIN WHITELIST
 CORS_ORIGIN_WHITELIST = [
