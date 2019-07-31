@@ -95,7 +95,7 @@ class UpdateJob extends Component {
               onSubmit={(values, { setSubmitting }) => {
                 const {company, job_title, job_status} = values;
                 const job = {company, job_title, job_status};
-                axios.put(`http://127.0.0.1:8000/api/jobs/${this.state.id}/`, job)
+                axios.put(`/api/jobs/${this.state.id}/`, job)
                   .then(res => {
                     setSubmitting(false);
                     this.setState({

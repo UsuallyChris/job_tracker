@@ -102,7 +102,7 @@ class UpdateContact extends Component {
               onSubmit={(values, { setSubmitting }) => {
                 const {name, company, phone_number, email} = values;
                 const job = {name, company, phone_number, email};
-                axios.put(`http://127.0.0.1:8000/api/contacts/${values.id}/`, job)
+                axios.put(`/api/contacts/${values.id}/`, job)
                   .then(res => {
                     setSubmitting(false);
                     this.setState({
