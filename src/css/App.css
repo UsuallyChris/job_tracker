@@ -153,7 +153,6 @@ body {
 }
 
 .card-container {
-  overflow: scroll;
   z-index: -1;
   width: 100%;
   display: flex;
@@ -471,7 +470,7 @@ button:hover,
   }
 }
 
-@media only screen and (max-height: 999px) {
+@media only screen and (max-height: 815px) {
   .menu-content-container h1 {
     display: none;
   }
